@@ -1,18 +1,18 @@
 class LinkedList {
     static Cell firstElement;
 
-    static class Cell {
-        String value;
+    static class  Cell <T> {
+        T value;
         Cell next;
         Cell previous;
 
-        Cell(String d) {
+        Cell(T d) {
             value = d;
             previous = next = null;
         }
     }
 
-    public static void addCell(String new_value) {
+    public static <T> void addCell(T new_value) {
         Cell new_cell = new Cell(new_value);
         Cell lastElement = firstElement;
         new_cell.next = null;
@@ -55,10 +55,10 @@ class LinkedList {
     public static void main(String[] args) {
         LinkedList llist = new LinkedList();
         llist.addCell("6");
-        llist.addCell("7");
+        llist.addCell(true);
         llist.addCell("10");
-        llist.addCell("4");
-        llist.addCell("9");
+        llist.addCell(4);
+        llist.addCell(false);
         llist.printList(firstElement);
         llist.deleteCell(firstElement,firstElement);
         llist.deleteCell(firstElement,firstElement.next);
