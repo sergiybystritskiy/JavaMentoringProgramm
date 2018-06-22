@@ -3,14 +3,14 @@ package Person;
 import java.util.Objects;
 
 public class Passport {
-    String Series;
+    String series;
 
     public String getSeries() {
-        return Series;
+        return series;
     }
 
     public void setSeries(String series) {
-        Series = series;
+        this.series = series;
     }
 
     public int getNumber() {
@@ -24,7 +24,7 @@ public class Passport {
     int number;
 
     public Passport(String series, int number) {
-        Series = series;
+        this.series = series;
         this.number = number;
     }
 
@@ -34,11 +34,11 @@ public class Passport {
         if(o == null || getClass() != o.getClass())
             return false;
         Passport passport = (Passport)o;
-        return number == passport.number && Objects.equals(Series, passport.Series);
+        return number == passport.number && Objects.equals(series, passport.series);
     }
 
     @Override public int hashCode() {
 
-        return Objects.hash(Series, number);
+        return Objects.hash(series, number);
     }
 }
