@@ -1,39 +1,29 @@
-import java.util.Scanner;
+import static java.lang.Math.*;
 
 public class QuadraticEquation {
-    public static void main(String[] args) {
-        double x1;
-        double x2;
-        Scanner in = new Scanner(System.in);
 
-        System.out.println("Please enter variable a");
-        Double a = in.nextDouble();
-        System.out.println("Please enter variable b");
-        Double b = in.nextDouble();
-        System.out.println("Please enter variable c");
-        Double c = in.nextDouble();
-        if(a == 0) {
-            x1 = -c / b;
-            x2 = x1;
-            System.out.println("Root is" + x2);
-        } else {
-            double discriminant = b * b - 4 * a * c;
+    public static final double DELTA = 0.000000001;
 
-            if(discriminant < 0) {
-                System.out.println("No real root");
-            } else {
-                if(discriminant == 0) {
-                    x1 = (-b / (2 * a));
-                    x2 = x1;
-                    System.out.println("Root is" + x2);
-                } else {
-                    x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-                    x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-
-                    System.out.println("Root 1 is " + x1);
-                    System.out.println("Root 2 is " + x2);
-                }
-            }
+    public static double[] solve(double a, double b, double c)  {
+        if(abs(a) < DELTA && abs(b) < DELTA && abs(c) < DELTA) {
+            throw new ArithmeticException("No real roots");
         }
+        if(abs(a) < DELTA && abs(b) < DELTA) {
+            return new double[] {};
+        }
+        if(abs(a) < DELTA) {
+            return new double[] { -c / b };
+        }
+
+        double D = pow(b, 2) - 4 * a * c;
+
+        if(abs(D) < DELTA) {
+            return new double[] { -b / (2 * a) };
+        }
+
+        if(D > 0) {
+            return new double[] { (-b - sqrt(D)) / (2 * a), (-b + sqrt(D)) / (2 * a) };
+        }
+        return new double[] {};
     }
 }
