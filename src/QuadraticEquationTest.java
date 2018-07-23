@@ -44,7 +44,7 @@ public class QuadraticEquationTest {
         }
     }
 
-    @Test(expected = ArithmeticException.class) public void testZeroAZeroBZeroC() throws ArithmeticException {
+    @Test(expected = ArithmeticException.class) public void testZeroAZeroBZeroC()  {
         assertArrayEquals(new double[] {}, QuadraticEquation.solve(0.0, 0.0, 0.0), DELTA);
     }
 }

@@ -6,7 +6,7 @@ public class QuadraticEquation {
 
     public static double[] solve(double a, double b, double c)  {
         if(abs(a) < DELTA && abs(b) < DELTA && abs(c) < DELTA) {
-            throw new ArithmeticException();
+            throw new ArithmeticException("No real roots");
         }
         if(abs(a) < DELTA && abs(b) < DELTA) {
             return new double[] {};
